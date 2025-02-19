@@ -1,0 +1,29 @@
+name: first-challenge
+on: push
+jobs:
+    job1:
+        name: frist-job
+        runs-on: ubuntu-latest
+        steps:
+            - name: Step-one
+              run: "`date +%Y%m%d%H%M%S`"
+    job2:
+        name: second-job
+        runs-on: windows-latest
+        steps:
+            - name: Step-one
+              run:  "Get-Date -Format 'dd/MM/yyyy HH:mm:ss'"
+        
+    job3:
+        name: third-job
+        runs-on: macOS-latest
+        steps:
+            - name: Step-one
+              run: "`date +%Y%m%d%H%M%S`"
+    job4:
+        name: fourth-job
+        runs-on: ubuntu-latest
+        needs: [job1, job2, job3]
+        steps:
+        - name: Step-one
+          run: "`date +%Y%m%d%H%M%S`"
