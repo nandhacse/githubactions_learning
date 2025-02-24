@@ -1,0 +1,20 @@
+name: second-challenge
+on: [push]
+env: 
+  ARTIFACT_VARIABLE : "test artifact variable"
+jobs:
+  job1:
+    name: checkout 
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout action
+        uses: actions/checkout@v2
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ env.ARTIFACT_VARIABLE}}
+          path: .
+  
+  
+  
